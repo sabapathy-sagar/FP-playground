@@ -138,3 +138,35 @@ console.log(
 // const pipe = fns => x => fns.reduce((v, f) => f(v), x);
 
 // console.log(pipe([add10, add2, add1])(10));
+
+const log = msg => console.log(msg);
+
+log("-------------PART 2-----------------");
+
+const add = a => (b, c) => a + b + c;
+
+const inc = add(1);
+
+log(inc(5, 6));
+
+const mapC = fn => arr => arr.map(fn);
+
+const arr = [1, 2, 3, 4];
+
+const isEven = n => n % 2 === 0;
+
+const striped = mapC(isEven);
+
+const stripedAll = striped(arr);
+
+log(stripedAll);
+
+const isLight = val => (val ? "light" : "dark");
+
+const checkLight = mapC(isLight);
+
+log(checkLight(stripedAll));
+
+const isLight2 = arr.map(isEven).map(isLight);
+
+log(isLight2);
